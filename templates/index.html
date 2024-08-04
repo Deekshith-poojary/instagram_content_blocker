@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxy Server Control</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(bg1.jpeg);
+    background-color: #2c3e50; /* Dark background color */
+    color: #fff; /* Light text color */
+  }
+
+  .container {
+    text-align: center;
+    margin-top: 20vh; /* Adjusted margin for vertical centering */
+  }
+
+  h1 {
+    font-size: 60px; /* Increased font size for header */
+    margin-bottom: 30px; /* Increased margin for spacing */
+    color: #ff5722; /* Header text color (Orange) */
+  }
+
+  .buttons {
+    margin-top: 20px; /* Spacing between header and buttons */
+  }
+
+  .button {
+    display: inline-block;
+    cursor: pointer;
+    padding: 15px 40px; /* Increased padding for larger buttons */
+    margin: 0 10px;
+    border: none;
+    border-radius: 30px;
+    background-color: #3498db; /* Blue button color */
+    color: #fff; /* Button text color */
+    font-size: 20px; /* Increased font size for larger buttons */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  }
+
+  .button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px); /* Move up on hover */
+  }
+
+  .onButton.active {
+    background-color: #1abc9c; /* Green background color when active */
+  }
+
+  .offButton.active {
+    background-color: #e74c3c; /* Red background color when active */
+  }
+
+  .options {
+    margin-top: 20px;
+  }
+
+  .options label {
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+    padding: 15px 40px;
+    border: 2px solid #3498db; /* Blue border */
+    border-radius: 30px;
+    transition: background-color 0.3s, color 0.3s;
+    color: #3498db; /* Radio button label color */
+    font-size: 20px;
+  }
+
+  /* Customize appearance for "Moderate" option */
+  .moderateOption {
+    background-color: #fff; /* Light background color */
+    color: #2c3e50; /* Dark text color */
+  }
+
+  .moderateOption:hover {
+    background-color: #ecf0f1; /* Lighter background color on hover */
+  }
+
+  input[type="radio"]:checked + .moderateOption {
+    background-color: #ecf0f1; /* Lighter background color when selected */
+    color: #2c3e50; /* Dark text color when selected */
+  }
+
+  /* Customize appearance for "Very Strict" option */
+  .strictOption {
+    background-color: #fff; /* Light background color */
+    color: #2c3e50; /* Dark text color */
+  }
+
+  .strictOption:hover {
+    background-color: #ecf0f1; /* Lighter background color on hover */
+  }
+
+  input[type="radio"]:checked + .strictOption {
+    background-color: #ecf0f1; /* Lighter background color when selected */
+    color: #2c3e50; /* Dark text color when selected */
+  }
+
+  /* Footer styles */
+  footer {
+    background-color: #34495e; /* Darker blue footer background */
+    color: #fff; /* White footer text color */
+    padding: 20px 0; /* Vertical padding */
+    position: fixed; /* Fixed to the bottom */
+    width: 100%; /* Full width */
+    bottom: 0; /* At the bottom */
+    text-align: center; /* Center-align text */
+    border-top: 2px solid #000; /* Black border top */
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Control Panel</h1>
+  
+<form action="/submit" method="post" >
+  <div class="options">
+    <input type="radio" id="moderate" name="proxyOptions" value="moderate">
+    <label class="moderateOption" for="moderate">Moderate</label>
+
+    <input type="radio" id="very-strict" name="proxyOptions" value="strict" checked>
+    <label class="strictOption" for="strict">Strict</label>
+  </div>
+  <div class="buttons">
+    <button id="offButton" class="button offButton" name="off">Connect</button>
+  </div>
+</form>
+  <footer>
+    <p>&copy; 2024 Code-X</p>
+  </footer>
+</div>
+
+
+<script>
+  document.getElementById("onButton").addEventListener("click", function() {
+    this.classList.add("active");
+    document.getElementById("offButton").classList.remove("active");
+  });
+
+  document.getElementById("offButton").addEventListener("click", function() {
+    this.classList.add("active");
+    document.getElementById("onButton").classList.remove("active");
+  });
+</script>
+
+</body>
+</html>
+
+
